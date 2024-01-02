@@ -3,11 +3,11 @@ import {
   CardStyleInterpolators,
   createStackNavigator,
 } from "@react-navigation/stack";
-import MainChat from "../screens/MainChat";
-import ProfileSearchNavigator from "./ProfileSearchNavigator";
+import RecommendScreen from "../screens/RecommendScreen";
+import MovieDetails from "../screens/MovieDetails";
 const Stack = createStackNavigator();
 
-const ChatNavigator = () => {
+const RecommendationNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -15,12 +15,12 @@ const ChatNavigator = () => {
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         gestureEnabled: true,
       }}
-      initialRouteName="MainChat"
+      initialRouteName="Recommendation"
     >
-      <Stack.Screen name="MainChat" component={MainChat} />
-      <Stack.Screen name="ProfileSearchNavigator" component={ProfileSearchNavigator} />
+      <Stack.Screen name="Recommendation" component={RecommendScreen} />
+      <Stack.Screen name="MovieDetails" component={MovieDetails} />
     </Stack.Navigator>
   );
 };
 
-export default ChatNavigator;
+export default RecommendationNavigator;

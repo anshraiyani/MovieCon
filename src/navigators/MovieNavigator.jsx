@@ -5,7 +5,7 @@ import {
 } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import MovieDetails from "../screens/MovieDetails";
-import Recommendation from "../screens/Recommendation"
+import RecommendationNavigator from "./RecommendationNavigator";
 const Stack = createStackNavigator();
 
 const MovieNavigator = () => {
@@ -20,7 +20,7 @@ const MovieNavigator = () => {
     >
       <Stack.Screen component={Home} name="Home" />
       <Stack.Screen component={MovieDetails} name="MovieDetails" />
-      <Stack.Screen component={Recommendation} name="Recommendation" />
+      <Stack.Screen component={RecommendationNavigator} name="RecommendationNavigator" />
     </Stack.Navigator>
   );
 };

@@ -54,6 +54,10 @@ export const firebaseSignUp = createAsyncThunk(
         friends: [],
         friendRequests: [],
         sentFriendRequests: [],
+        displayName: user.displayName,
+        email: user.email,
+        uid: user.uid,
+        photoUrl: user.photoURL || "",
       });
 
       return {

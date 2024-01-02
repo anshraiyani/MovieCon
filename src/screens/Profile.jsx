@@ -17,7 +17,7 @@ import { AntDesign, Feather, FontAwesome } from "@expo/vector-icons";
 
 SplashScreen.preventAutoHideAsync();
 
-const Profile = ({navigation}) => {
+const Profile = ({ navigation }) => {
   const dispatch = useDispatch();
   const userSelector = useSelector(selectStateUser);
 
@@ -61,13 +61,19 @@ const Profile = ({navigation}) => {
         padding: 8,
       }}
     >
-      <View>
+      <View
+        style={{
+          borderBottomColor: "#505050",
+          borderBottomWidth: 2,
+          marginBottom: 10,
+          padding: 5,
+        }}
+      >
         <Text
           style={{
             fontFamily: "HeroBd",
             color: "white",
             fontSize: 35,
-            marginBottom: 10,
           }}
         >
           PROFILE
@@ -187,7 +193,7 @@ const Profile = ({navigation}) => {
             backgroundColor: "#202020",
             borderRadius: 20,
           }}
-          onPress={()=>navigation.navigate('FavoriteNavigator')}
+          onPress={() => navigation.navigate("FavoriteNavigator")}
         >
           <Text style={{ color: "white", fontFamily: "HeroBd", fontSize: 25 }}>
             OPEN FAVORITES
@@ -203,7 +209,7 @@ const Profile = ({navigation}) => {
             backgroundColor: "#202020",
             borderRadius: 20,
           }}
-          onPress={()=>navigation.navigate('WatchlistNavigator')}
+          onPress={() => navigation.navigate("WatchlistNavigator")}
         >
           <Text style={{ color: "white", fontFamily: "HeroBd", fontSize: 25 }}>
             OPEN WATCHLIST

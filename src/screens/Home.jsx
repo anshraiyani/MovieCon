@@ -5,7 +5,7 @@ import {
   StatusBar,
   TouchableOpacity,
 } from "react-native";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { FontAwesome5, AntDesign } from "@expo/vector-icons";
@@ -14,7 +14,14 @@ import MovieCard from "../components/MovieCard";
 import { getAuth } from "firebase/auth";
 import { app, firestore_db } from "../../firebase";
 import { useDispatch } from "react-redux";
-import { loadProfile, updateFavorites, updateWatchlist } from "../features/slices/userSlice";
+import {
+  loadProfile,
+  updateFavorites,
+  updateFriendRequests,
+  updateFriends,
+  updateSentFriendRequests,
+  updateWatchlist,
+} from "../features/slices/userSlice";
 import { doc, getDoc } from "firebase/firestore";
 
 SplashScreen.preventAutoHideAsync();
@@ -56,8 +63,14 @@ const Home = ({ navigation }) => {
       if (userDoc.exists()) {
         const favoritesArray = userDoc.data().favorites;
         const watchlistArray = userDoc.data().watchlist;
-        dispatch(updateFavorites(favoritesArray))
-        dispatch(updateWatchlist(watchlistArray))
+        const friends = userDoc.data().friends;
+        const sentFriendRequests = userDoc.data().sentFriendRequests;
+        const friendRequests = userDoc.data().friendRequests;
+        dispatch(updateFavorites(favoritesArray));
+        dispatch(updateWatchlist(watchlistArray));
+        dispatch(updateFriends(friends));
+        dispatch(updateFriendRequests(friendRequests));
+        dispatch(updateSentFriendRequests(sentFriendRequests));
       } else {
         console.log("User document not found");
       }
@@ -114,7 +127,7 @@ const Home = ({ navigation }) => {
         </Text>
         <TouchableOpacity
           style={{ backgroundColor: "#292929", padding: 10, borderRadius: 10 }}
-          onPress={() => navigation.navigate("Recommendation")}
+          onPress={() => navigation.navigate("RecommendationNavigator")}
         >
           <Text style={{ color: "white", fontSize: 20, fontFamily: "HeroRg" }}>
             RECOMMEND <FontAwesome5 name="magic" size={15} color="#d24dff" />

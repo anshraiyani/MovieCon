@@ -3,11 +3,11 @@ import {
   CardStyleInterpolators,
   createStackNavigator,
 } from "@react-navigation/stack";
-import MainChat from "../screens/MainChat";
-import ProfileSearchNavigator from "./ProfileSearchNavigator";
+import SearchProfile from "../screens/SearchProfile";
+import OtherProfile from "../screens/OtherPofile";
 const Stack = createStackNavigator();
 
-const ChatNavigator = () => {
+const ProfileSearchNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -15,12 +15,12 @@ const ChatNavigator = () => {
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         gestureEnabled: true,
       }}
-      initialRouteName="MainChat"
+      initialRouteName="SearchProfile"
     >
-      <Stack.Screen name="MainChat" component={MainChat} />
-      <Stack.Screen name="ProfileSearchNavigator" component={ProfileSearchNavigator} />
+      <Stack.Screen name="SearchProfile" component={SearchProfile} />
+      <Stack.Screen name="OtherProfile" component={OtherProfile} />
     </Stack.Navigator>
   );
 };
 
-export default ChatNavigator;
+export default ProfileSearchNavigator;

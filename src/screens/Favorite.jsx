@@ -55,7 +55,8 @@ const Favorite = ({ navigation }) => {
       </Text>
       <View>
         <FlatList
-          style={{ marginBottom: 120 }}
+          showsVerticalScrollIndicator={false}
+          style={{ marginBottom: 50 }}
           data={favorites}
           renderItem={({ item }) => (
             <MovieCard id={item} navigation={navigation} />
