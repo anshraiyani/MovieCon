@@ -25,9 +25,10 @@ const Login = ({ navigation }) => {
     HeroRg: require("../assets/fonts/Hero-Regular.ttf"),
     HeroBd: require("../assets/fonts/Hero-Bold.ttf"),
   });
-  const onLayoutRootView = useCallback(async () => {
+
+  useEffect(() => {
     if (fontsLoaded) {
-      await SplashScreen.hideAsync();
+      SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
 

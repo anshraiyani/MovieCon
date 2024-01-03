@@ -3,7 +3,7 @@ import {
   getAuth,
   updateProfile,
 } from "firebase/auth";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   KeyboardAvoidingView,
   Platform,
@@ -33,9 +33,10 @@ const Signup = ({ navigation }) => {
     HeroRg: require("../assets/fonts/Hero-Regular.ttf"),
     HeroBd: require("../assets/fonts/Hero-Bold.ttf"),
   });
-  const onLayoutRootView = useCallback(async () => {
+
+  useEffect(() => {
     if (fontsLoaded) {
-      await SplashScreen.hideAsync();
+      SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
 
@@ -54,13 +55,14 @@ const Signup = ({ navigation }) => {
   return (
     <KeyboardAvoidingView
       // TODO:
-      // behavior={Platform.OS === "ios" ? "padding" : null}
-      // keyboardVerticalOffset={Platform.select({ios: 0, android: 500})}
+      // behavior={Platform.OS === "ios" ? "padding" : "height"}
+      // keyboardVerticalOffset={Platform.select({ ios: 0, android: 100 })}
       style={{
         backgroundColor: "black",
         padding: 20,
         marginTop: StatusBar.currentHeight,
         flex: 1,
+        height: "100%",
       }}
     >
       <View style={{ gap: 5 }}>
