@@ -60,7 +60,7 @@ const RecommendScreen = ({ navigation }) => {
   const getRecommendations = async () => {
     const RandomfavoriteArray = getFavorites();
     const favoritesArray = userSelector.favorites;
-    if (favoritesArray.length === 5) {
+    if (favoritesArray.length >= 5) {
       let recommendationsArray = [];
       for (const movieId of RandomfavoriteArray) {
         const movieData = await getData(movieId);

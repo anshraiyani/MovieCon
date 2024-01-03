@@ -18,6 +18,7 @@ import {
   arrayUnion,
   doc,
   getDoc,
+  runTransaction,
   updateDoc,
 } from "firebase/firestore";
 import { firestore_db } from "../../firebase";
@@ -25,6 +26,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addToFriends,
   addToSentFriendRequests,
+  removeFromFriendRequests,
   removeFromSentFriendRequests,
   selectStateUser,
 } from "../features/slices/userSlice";
@@ -84,22 +86,18 @@ const SearchProfile = () => {
 
   const handleAcceptRequest = async () => {
     try {
-      const userDocRefOther = doc(firestore_db, "user", user.uid);
       const userDocRef = doc(firestore_db, "user", userSelector.profile.uid);
+      const userDocRefOther = doc(firestore_db, "user", user.uid);
       await updateDoc(userDocRefOther, {
         friends: arrayUnion(userSelector.profile.uid),
-      });
-      await updateDoc(userDocRefOther, {
-        friendRequests: arrayRemove(userSelector.profile.uid),
+        sentFriendRequests: arrayRemove(userSelector.profile.uid),
       });
       await updateDoc(userDocRef, {
         friends: arrayUnion(user.uid),
-      });
-      await updateDoc(userDocRef, {
-        sentFriendRequests: arrayRemove(user.uid),
+        friendRequests: arrayRemove(user.uid),
       });
       dispatch(addToFriends(user.uid));
-      dispatch(removeFromSentFriendRequests(user.uid));
+      dispatch(removeFromFriendRequests(user.uid));
     } catch (error) {
       console.error("Error adding favorite:", error);
       throw error;
