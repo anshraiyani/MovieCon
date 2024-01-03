@@ -105,7 +105,7 @@ const ChatScreen = ({ navigation, route }) => {
         <ScrollView
           style={{
             backgroundColor: "#202020",
-            padding: 10,
+            padding: 5,
           }}
           ref={scrollViewRef}
           onContentSizeChange={() =>
@@ -122,7 +122,7 @@ const ChatScreen = ({ navigation, route }) => {
                       padding: 8,
                       alignSelf: "flex-end",
                       borderRadius: 15,
-                      marginVertical: 8,
+                      marginVertical: 2,
                     }}
                   >
                     <Text style={{ fontSize: 17, color: "white" }}>
@@ -138,7 +138,7 @@ const ChatScreen = ({ navigation, route }) => {
                       padding: 8,
                       alignSelf: "flex-start",
                       borderRadius: 15,
-                      marginVertical: 8,
+                      marginVertical: 2,
                     }}
                   >
                     <Text style={{ fontSize: 17, color: "white" }}>
