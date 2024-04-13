@@ -117,12 +117,14 @@ const ChatScreen = ({ navigation, route }) => {
               if (item.sender_id === userSelector.profile.uid) {
                 return (
                   <View
+                    key={id}
                     style={{
                       backgroundColor: "#d24dff",
                       padding: 8,
                       alignSelf: "flex-end",
-                      borderRadius: 15,
+                      borderRadius: 10,
                       marginVertical: 2,
+                      maxWidth: "60%",
                     }}
                   >
                     <Text style={{ fontSize: 17, color: "white" }}>
@@ -133,12 +135,14 @@ const ChatScreen = ({ navigation, route }) => {
               } else {
                 return (
                   <View
+                    key={id}
                     style={{
-                      backgroundColor: "#101010",
+                      backgroundColor: "#404040",
                       padding: 8,
                       alignSelf: "flex-start",
-                      borderRadius: 15,
+                      borderRadius: 10,
                       marginVertical: 2,
+                      maxWidth: "60%",
                     }}
                   >
                     <Text style={{ fontSize: 17, color: "white" }}>

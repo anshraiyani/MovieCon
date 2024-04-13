@@ -139,7 +139,7 @@ const FriendRequests = () => {
       </View>
       <ScrollView>
         {requestList &&
-          requestList.map((el) => (
+          requestList.map((el,id) => (
             <View
               style={{
                 backgroundColor: "#202020",
@@ -148,7 +148,9 @@ const FriendRequests = () => {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
+                marginTop:10
               }}
+              key={id}
             >
               <View>
                 <Text

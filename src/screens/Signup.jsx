@@ -1,8 +1,3 @@
-import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  updateProfile,
-} from "firebase/auth";
 import React, { useCallback, useEffect, useState } from "react";
 import {
   KeyboardAvoidingView,
@@ -15,7 +10,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { app } from "../../firebase";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useDispatch } from "react-redux";

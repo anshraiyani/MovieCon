@@ -6,6 +6,7 @@ import {
 import Home from "../screens/Home";
 import MovieDetails from "../screens/MovieDetails";
 import RecommendationNavigator from "./RecommendationNavigator";
+import ActorProfile from "../screens/ActorProfile";
 const Stack = createStackNavigator();
 
 const MovieNavigator = () => {
@@ -21,6 +22,7 @@ const MovieNavigator = () => {
       <Stack.Screen component={Home} name="Home" />
       <Stack.Screen component={MovieDetails} name="MovieDetails" />
       <Stack.Screen component={RecommendationNavigator} name="RecommendationNavigator" />
+      <Stack.Screen component={ActorProfile} name="ActorProfile" />
     </Stack.Navigator>
   );
 };

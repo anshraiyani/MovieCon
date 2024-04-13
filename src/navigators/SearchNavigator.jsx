@@ -1,12 +1,26 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from "react";
+import {
+  CardStyleInterpolators,
+  createStackNavigator,
+} from "@react-navigation/stack";
+import SearchMovies from "../screens/SearchMovies";
+import MovieDetails from "../screens/MovieDetails";
+const Stack = createStackNavigator();
 
 const SearchNavigator = () => {
   return (
-    <View>
-      <Text>SearchNavigator</Text>
-    </View>
-  )
-}
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        gestureEnabled: true,
+      }}
+      initialRouteName="SearchMovies"
+    >
+      <Stack.Screen component={SearchMovies} name="SearchMovies" />
+      <Stack.Screen component={MovieDetails} name="MovieDetails" />
+    </Stack.Navigator>
+  );
+};
 
-export default SearchNavigator
+export default SearchNavigator;

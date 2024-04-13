@@ -12,6 +12,7 @@ const HomeNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
+        tabBarHideOnKeyboard:true,
         headerShown: false,
         tabBarIcon: ({ color, size, focused }) => {
           let iconname;
